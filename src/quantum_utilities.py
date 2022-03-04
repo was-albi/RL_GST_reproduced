@@ -46,7 +46,8 @@ def gate_to_channelmatrix(G):
     for a in range(d):
         for b in range(d):
             cm[a,b] = np.real(np.trace( PBasis[a]@G@PBasis[b]@G_dag))
-            #cm[a,b] = cm[a,b] if np.abs(cm[a,b]) > 1e-15 else 0 # real coef since we're using Pauli Basis
+#            cm[a,b] = np.trace( PBasis[a]@G@PBasis[b]@G_dag)
+            cm[a,b] = cm[a,b] if np.abs(cm[a,b]) > 1e-15 else 0 # real coef since we're using Pauli Basis
     return cm
 
 def my_braket(L):
